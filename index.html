@@ -1,0 +1,212 @@
+<!-- Ejercicio numero 5 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TecnoBlog</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- titulo del blog -->
+<h1 class="title">TECNO BLOG</h1>
+
+<!-- menu del blog -->
+<div class="menu">
+    <a href="#inicio" class="menu-item active">Inicio</a>
+    <a href="#programacion" class="menu-item">Programación</a>
+    <a href="#inteligencia-artificial" class="menu-item">Inteligencia Artificial</a>
+    <a href="#diseno-web" class="menu-item">Diseño Web</a>
+    <a href="#contacto" class="menu-item">Contacto</a>
+</div>
+
+<!-- panel principal del blog -->
+<section id="inicio">
+
+<div class="search">
+    <input type="text" id="search-input" placeholder="Buscar articulo">
+
+    <p id="search-results">0 resultados encontrados</p>
+    <button id="search-button">Buscar</button>
+</div>
+<h2 class="subtitle">Últimos artículos</h2>
+
+<!-- Articulo sobre HTML5 -->
+<article class="article" data-category="html">
+    <h3 class="article-title">¿Qué es HTML5?</h3>
+
+    <img src="html.png" width="600">
+
+    <p class="article-text">HTML5 es una tecnología utilizada para crear y estructurar páginas web.</p>
+
+    <p class="article-text">Publicado: 5 de septiembre de 2026</p>
+
+    <p class="article-text" data-read-more="true">Leer más...</p>
+
+    <!-- Boton para dar like al articulo de HTML5 -->
+    <button class="like-button" type="button" @click="darLike('html')">
+        <img src="like.svg" alt="">
+        Me gusta
+        <span>{{ likes.html }}</span>
+    </button>
+</article>
+
+<!-- Articulo sobre CSS -->
+<article id="diseno-web" class="article" data-category="css">
+    <h3 class="article-title">Aprende CSS desde cero</h3>
+
+    <img src="css.png" width="600">
+
+    <p class="article-text">CSS permite modificar la apariencia y presentación de los documentos HTML.</p>
+
+    <p class="article-text">Publicado: 2 de septiembre de 2026</p>
+
+    <p class="article-text" data-read-more="true">Leer más...</p>
+
+    <!-- Boton para dar like al articulo de CSS -->
+    <button class="like-button" type="button" @click="darLike('css')">
+        <img src="like.svg" alt="">
+        Me gusta
+        <span>{{ likes.css }}</span>
+    </button>
+</article>
+
+<!-- Articulo sobre JavaScript -->
+<article id="programacion" class="article" data-category="javascript">
+    <h3 class="article-title">Introducción a JavaScript</h3>
+    
+    <img src="javascript.png" width="600">
+    
+    <p class="article-text">JavaScript permite agregar interacción y comportamiento a las páginas web.</p>
+    
+    <p class="article-text">Publicado: 28 de agosto de 2026</p>
+    
+    <p class="article-text" data-read-more="true">Leer más...</p>
+
+    <!-- Boton para dar like al articulo de JavaScript -->
+    <button class="like-button" type="button" @click="darLike('javascript')">
+        <img src="like.svg" alt="">
+        Me gusta
+        <span>{{ likes.javascript }}</span>
+    </button>
+</article>
+</section>
+
+<section id="inteligencia-artificial">
+    <h2 class="subtitle">Inteligencia Artificial</h2>
+    <p class="about-text">La inteligencia artificial permite que los sistemas reconozcan patrones y apoyen tareas como el análisis de información.</p>
+</section>
+
+    <!-- Panel de categorías -->
+    <h2 class="subtitle">Categorías</h2>
+
+    <div class="categories">
+        <p class="category-item" data-category="html">HTML</p>
+        <p class="category-item" data-category="css">CSS</p>
+        <p class="category-item" data-category="javascript">JavaScript</p>
+        <p class="category-item" data-category="programacion">Programación</p>
+        <p class="category-item" data-category="diseno">Diseño</p>
+        <p class="category-item" data-category="all">Todas</p>
+    </div>
+
+    <!-- formulario de contacto -->
+    <section id="contacto">
+        <form @submit.prevent="enviarMensaje">
+
+            <!-- // Agregar elemento v-model a los campos del formulario -->
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" id="name" v-model="nombre" name="name" class="form-input" placeholder="Ingrese su nombre">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" v-model="email" name="email" class="form-input" placeholder="Ingrese su email">
+            <label for="message" class="form-label">Mensaje</label>
+            <textarea id="message" v-model="message" name="message" class="form-input" placeholder="Ingrese su mensaje"></textarea>
+            <p id="form-message" class="form-message"></p>
+            <button type="submit" class="submit-button">Enviar</button>
+        </form>
+
+        <div class="comments">
+            <h3 class="comments-title" v-if="comentarios.length">Comentarios {{comentarios.length}}</h3>
+            <p class="comments-empty" v-else>No hay comentarios</p>
+
+            <ul class="comments-list">
+                <li class="comment" v-for="c in comentarios" :key="c.id">
+                    <strong class="comment-name">{{ c.name }}</strong>
+                    <p class="comment-email">{{ c.email }}</p>
+                    <p class="comment-text">{{ c.message }}</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <h2 class="subtitle">Sobre el blog</h2>
+
+    <p class="about-text">Este blog comparte información para estudiantes interesados en tecnología.</p>
+
+    <button id="scroll-to-top" class="scroll-to-top-button">Volver arriba</button>
+
+    <!-- pie de pagina del blog -->
+    <footer class="footer">
+    <p>TecnoBlog - Todos los derechos reservados</p>
+    </footer>
+
+</div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <!-- cargar vue a traves de su CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+
+    <script>
+
+        // importamos Vue y ref
+        const {createApp, ref} = Vue;
+
+        // creamos el app de Vue
+        createApp({
+            setup() {
+
+                // recuperamos el estado de likes de los articulos
+                const likes = ref({
+                    html: 0,
+                    css: 0,
+                    javascript: 0
+                });
+
+                // funcion que permite dar like al articulo
+                function darLike(article) {
+                    likes.value[article]++;
+                }
+
+                // mostrar comentarios del blog
+                const name = ref('');
+                const email = ref('');
+                const message = ref('');
+                const comentarios = ref([]);
+
+                // funcion que permite enviar un mensaje al blog
+                function enviarMensaje() {
+                    comentarios.value.unshift({
+                        id: Date.now(),
+                        name: name.value.trim(),
+                        email: email.value.trim(),
+                        message: message.value.trim(),
+                        fecha: new Date().toLocaleString('es-CO')
+                    });
+
+                    // limpiar los campos del formulario
+                    name.value = '';
+                    email.value = '';
+                    message.value = '';
+                }
+
+                // devolver los datos del app
+                return {likes, darLike, name, email, message, comentarios, enviarMensaje};
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+/* Estilos de fondo para el body */
+body {
+    background-color: #000000;
+    color: #39FF14;
+}
+
+/* Estilos para el titulo del blog */
+.title {
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 0 #111111, 0 0 10px #39FF14;
+}
+
+/* Estilos para el menu del blog */
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 0 30px;
+}
+
+/* Estilos para los items del menu */
+.menu-item {
+    background-color: #000000;
+    color: #39FF14;
+    box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.menu-item.active {
+    color: #FFC700;
+    box-shadow: 0 0 8px #FFC700, 0 0 20px #FFC700;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 24px 30px;
+}
+
+#search-input {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    padding: 10px 16px;
+    border: 1px solid #39FF14;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14;
+    outline: none;
+    min-width: 280px;
+}
+
+#search-input::placeholder {
+    color: #39FF14;
+    opacity: 0.7;
+}
+
+#search-input:focus {
+    border-color: #FFC700;
+    box-shadow: 0 0 8px #FFC700, 0 0 20px #FFC700;
+}
+
+#search-button {
+    background-color: #000000;
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para el boton de busqueda */
+#search-button:hover {
+    color: #FFC700;
+    box-shadow: 0 0 8px #FFC700, 0 0 20px #FFC700;
+}
+
+#search-results {
+    display: none;
+    margin: 0;
+    color: #FFC700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+/* Estilos para el formulario de contacto */
+#contacto form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: min(480px, calc(100% - 60px));
+    margin: 24px auto;
+}
+
+.form-label {
+    align-self: flex-start;
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    padding: 10px 16px;
+    border: 1px solid #39FF14;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14;
+    outline: none;
+}
+
+textarea.form-input {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-input::placeholder {
+    color: #39FF14;
+    opacity: 0.7;
+}
+
+.form-input:focus {
+    border-color: #FFC700;
+    box-shadow: 0 0 8px #FFC700, 0 0 20px #FFC700;
+}
+
+.submit-button {
+    background-color: #000000;
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    color: #FFC700;
+    box-shadow: 0 0 8px #FFC700, 0 0 20px #FFC700;
+}
+
+/* Estilos para el mensaje de formulario */
+.form-message {
+    display: none;
+    margin: 0;
+    color: #FFC700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Estilos para los comentarios del blog */
+.comments {
+    width: min(420px, calc(100% - 60px));
+    margin: 8px auto 24px;
+    text-align: center;
+}
+
+.comments-title,
+.comments-empty {
+    margin: 0 0 12px;
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 8px #39FF14;
+}
+
+.comments-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #39FF14;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14;
+}
+
+.comment-name {
+    display: block;
+    color: #FFC700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+}
+
+.comment-email,
+.comment-text {
+    margin: 4px 0 0;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Estilos para el subtitulo del blog */
+.subtitle {
+    color: #FFC700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #111111, 4px 4px 0 #111111, 0 0 12px #39FF14;
+}
+
+/* Estilos para los articulos del blog */
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 30px;
+}
+
+/* Estilos para el titulo de los articulos */
+.article-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #39FF14;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #111111, 4px 4px 0 #111111, 0 0 12px #39FF14;
+}
+
+/* Estilos para el boton de me gusta */
+.like-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #000000;
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para el icono de like */
+.like-button img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) saturate(100%) invert(75%) sepia(78%) saturate(1487%) hue-rotate(66deg) brightness(108%) contrast(104%);
+}
+
+.like-button:hover {
+    color: #FFC700;
+    box-shadow: 0 0 8px #FFC700, 0 0 20px #FFC700;
+}
+
+.like-button:hover img {
+    filter: brightness(0) saturate(100%) invert(79%) sepia(51%) saturate(1468%) hue-rotate(359deg) brightness(103%) contrast(104%);
+}
+
+/* Estilos para el texto de los articulos */
+.article-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-align: justify;
+    line-height: 1.5;
+    margin: 0 30px;
+}
+
+/* Estilos para categorias del blog */
+.categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 0 30px;
+}
+
+/* Estilos para los items de las categorias */
+.category-item {
+    background-color: #000000;
+    color: #39FF14;
+    box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.about-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 30px;
+}
+
+/* Estilos para el boton de volver arriba */
+.scroll-to-top-button {
+    background-color: #000000;
+    color: #39FF14;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #39FF14, 0 0 20px #39FF14;
+    display: none;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para el footer del blog */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 30px;
+}
